@@ -171,7 +171,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159190584}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1e1724d4651097e4bb1c6bb400ffcd1e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -255,7 +255,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 219873345}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1e1724d4651097e4bb1c6bb400ffcd1e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -352,7 +352,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467426077}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1e1724d4651097e4bb1c6bb400ffcd1e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -584,7 +584,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420154058}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1e1724d4651097e4bb1c6bb400ffcd1e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -627,7 +627,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!135 &1542532349
 SphereCollider:
@@ -639,8 +639,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 120
+  m_Center: {x: 0, y: 110, z: 0}
 --- !u!114 &1542532350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: aa495cc655bcffc43af1f4cb05108603, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: aa495cc655bcffc43af1f4cb05108603, type: 3}
       propertyPath: m_LocalPosition.z
@@ -857,7 +857,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2117964337}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1e1724d4651097e4bb1c6bb400ffcd1e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
