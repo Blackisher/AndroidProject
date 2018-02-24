@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        myText1.text = "AAA";
+       // myText1.text = "AAA";
         myText2.text = "BBB";
         myText22.text = "BBB";
         myText3.text = "CCC";
@@ -86,10 +86,10 @@ public class PlayerController : MonoBehaviour {
         }
 
         //myText1.text = "a" + 10 * Input.acceleration;
-        myText1.text = transform.rotation.ToString();
-        myText2.text = "b" +  (10 * Input.gyro.rotationRate).ToString();
-        myText22.text = "c"+ (10 * Input.gyro.rotationRateUnbiased);
-        myText3.text = "d" + 10 * Input.compass.magneticHeading + ", " + 10 * Input.compass.trueHeading + ", " + 10 * Input.compass.headingAccuracy;
+        //myText1.text = transform.rotation.ToString();
+        //myText2.text = "b" +  (10 * Input.gyro.rotationRate).ToString();
+        //myText22.text = "c"+ (10 * Input.gyro.rotationRateUnbiased);
+        //myText3.text = "d" + 10 * Input.compass.magneticHeading + ", " + 10 * Input.compass.trueHeading + ", " + 10 * Input.compass.headingAccuracy;
 
 
         //TODO if small then do nothing
