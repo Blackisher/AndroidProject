@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458bf665f336e084599dab7412fbba14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1136258573}
   com: {x: 0, y: -100, z: 0}
   speed: 15
   myText1: {fileID: 1000514725}
@@ -823,13 +822,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136258573}
-  m_LocalRotation: {x: -0.29004526, y: 0.014924854, z: -0.0045232577, w: -0.95688593}
-  m_LocalPosition: {x: -9.62651, y: 14.570427, z: -25.67266}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: -88.4, y: 76.5, z: -102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!114 &1136258578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 273728401}
+  offset: {x: 0, y: 0, z: 0}
   lerpRate: 200
   gameOver: 0
 --- !u!1 &1286394096
