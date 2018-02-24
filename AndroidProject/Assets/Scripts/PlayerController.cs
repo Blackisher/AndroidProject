@@ -12,9 +12,10 @@ public class PlayerController : MonoBehaviour {
         Down,
         Left,
         Right,
-        Jump
+        Jump,
+        TurnLeft,
+        TurnRight
     }
-    
 
     public Vector3 com;
     Rigidbody rb;
@@ -38,6 +39,9 @@ public class PlayerController : MonoBehaviour {
         myText3.text = "CCC";
         rb.centerOfMass = com;
         //rb.velocity = new Vector3(speed, 0, speed);
+        Input.compass.enabled = true;
+        Input.gyro.enabled = true;
+        Input.location.Start();
     }
 	
 	// Update is called once per frame
@@ -46,22 +50,22 @@ public class PlayerController : MonoBehaviour {
 
         
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             Command(Moves.Left, force);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             Command(Moves.Right, force);
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             Command(Moves.Up, force);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             Command(Moves.Down, force);
         }
@@ -71,21 +75,39 @@ public class PlayerController : MonoBehaviour {
             Command(Moves.Jump, force);
         }
 
-        myText1.text = Input.acceleration.ToString();
-        myText2.text = Input.gyro.rotationRate.ToString();
-        myText22.text = Input.gyro.rotationRateUnbiased.ToString();
-        myText3.text = Input.compass.magneticHeading + ", " + Input.compass.trueHeading + ", " + Input.compass.headingAccuracy;
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Command(Moves.TurnLeft, force);
+        }
 
-        int test = (int)(10000 * Input.gyro.userAcceleration.y);
-        System.Console.WriteLine("Input.gyro.userAcceleration:" + Input.gyro.userAcceleration);
-        if (test > 0)
+        if (Input.GetKey(KeyCode.E))
         {
-            Command(Moves.Up, test);
+            Command(Moves.TurnRight, force);
         }
-        else if (test < 0)
+
+        //myText1.text = "a" + 10 * Input.acceleration;
+        myText1.text = transform.rotation.ToString();
+        myText2.text = "b" +  (10 * Input.gyro.rotationRate).ToString();
+        myText22.text = "c"+ (10 * Input.gyro.rotationRateUnbiased);
+        myText3.text = "d" + 10 * Input.compass.magneticHeading + ", " + 10 * Input.compass.trueHeading + ", " + 10 * Input.compass.headingAccuracy;
+
+
+        //TODO if small then do nothing
+        //Moves player by tellting
+        Command(Moves.Up, (int)(10 * (-Input.acceleration.z)));
+        int x = (int) (10*Input.acceleration.x);
+        if (x < -2)
         {
-            Command(Moves.Down, test);
+            Command(Moves.TurnLeft, force);
         }
+
+        if (x > 2)
+        {
+            Command(Moves.TurnRight, force);
+        }
+
+        //Turn player
+        // Command(Moves.TurnRight, (int)(10 * (-Input.acceleration.x)));
 
 
 
@@ -143,6 +165,12 @@ public class PlayerController : MonoBehaviour {
                 break;
             case Moves.Jump:
                 rb.AddForce(new Vector3(0, passedForce, 0));
+                break;
+            case Moves.TurnLeft:
+                transform.RotateAround(transform.position, -transform.up, Time.deltaTime * 90f);
+                break;
+            case Moves.TurnRight:
+                transform.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
                 break;
         }
     }

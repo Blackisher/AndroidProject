@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
     public GameObject player;
-    Vector3 offset;
+    public Vector3 offset;
     private float offsetMagnitute;
     public float lerpRate;
     public bool gameOver;
@@ -14,8 +14,10 @@ public class CameraFollow : MonoBehaviour {
     void Start () {
         offset = player.transform.position - transform.position;
         offsetMagnitute = offset.magnitude;
-        
-	}
+        offset = offset.normalized;
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,17 +29,24 @@ public class CameraFollow : MonoBehaviour {
 
     void Follow()
     {
-        Vector3 pos = transform.position;
+        Quaternion rotation = player.transform.rotation;
 
-        Vector3 change = Vector3.zero;
-        //Vector3 change = new Vector3(Input.acceleration.x, Input.acceleration.y, Input.acceleration.z);
-        // Debug.DrawRay(transform.position, (change.x)*Vector3.right, Color.red);
-        // Debug.DrawRay(transform.position, (change.y) * Vector3.up, Color.red);
-        // Debug.DrawRay(transform.position, (change.z) * Vector3.forward, Color.red);
-        offset = (offset - change).normalized * offsetMagnitute;
-        Vector3 target = player.transform.position - offset;
-        pos = Vector3.Lerp(pos, target, lerpRate * Time.deltaTime);
-        transform.position = pos;
+        if (!transform.rotation.Equals(rotation))
+        {
+            //still problem - its just rotating over and over and not just a little
+            //offset = rotation * offset;
+            //Vector3 pos = transform.position;
+            //Vector3 target = player.transform.position - offset * offsetMagnitute;
+            //pos = Vector3.Lerp(pos, target, lerpRate * Time.deltaTime);
+            //transform.position = pos;
+        }
+        
+        
+        
+        
+        //Notepad.....
+
+
 
         //transform.position = transform.position - change;
         //player.transform.position
