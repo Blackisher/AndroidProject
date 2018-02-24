@@ -149,19 +149,20 @@ public class PlayerController : MonoBehaviour {
 
     private void Command(Moves move, int passedForce)
     {
+        Quaternion playerRotation = transform.rotation;
         switch (move)
         {
             case Moves.Left:
-                rb.AddForce(new Vector3(-passedForce, 0, 0));
+                rb.AddForce(playerRotation * new Vector3(-passedForce, 0, 0));
                 break;
             case Moves.Right:
-                rb.AddForce(new Vector3(passedForce, 0, 0));
+                rb.AddForce(playerRotation * new Vector3(passedForce, 0, 0));
                 break;
             case Moves.Up:
-                rb.AddForce(new Vector3(0, 0, passedForce));
+                rb.AddForce(playerRotation * new Vector3(0, 0, passedForce));
                 break;
             case Moves.Down:
-                rb.AddForce(new Vector3(0, 0, -passedForce));
+                rb.AddForce(playerRotation * new Vector3(0, 0, -passedForce));
                 break;
             case Moves.Jump:
                 rb.AddForce(new Vector3(0, passedForce, 0));
