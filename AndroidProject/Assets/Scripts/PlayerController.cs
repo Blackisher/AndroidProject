@@ -23,6 +23,11 @@ public class PlayerController : NetworkBehaviour {
     [SerializeField]
     private float speed;
 
+
+    private GameObject HisCamera;
+
+    public GameObject camera; 
+
     public Text myText1;
     public Text myText2;
     public Text myText22;
@@ -33,12 +38,15 @@ public class PlayerController : NetworkBehaviour {
 
     void Start()
     {
+        HisCamera = camera;
+
         rb = GetComponent<Rigidbody>();
        // myText1.text = "AAA";
         myText2.text = "BBB";
         myText22.text = "BBB";
         myText3.text = "CCC";
         rb.centerOfMass = com;
+        
         //rb.velocity = new Vector3(speed, 0, speed);
         Input.compass.enabled = true;
         Input.gyro.enabled = true;
